@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Now - Beautiful Weather App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#0B0E1E] min-h-screen text-white">
+
+  <div class="max-w-7xl mx-auto p-8">
+
+    <div class="flex justify-between items-center mb-8">
+
+      <div class="flex items-center gap-2">
+        <span class="inline-block"><svg width="28" height="28" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="#FFD600"/><g stroke="#FFD600" stroke-width="2"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></g></svg></span>
+        <span class="font-bold text-xl">Weather Now</span>
+      </div>
+
+      <div>
+        <select id="units" class="bg-[#181B2A] text-white rounded px-3 py-2">
+          <option value="metric">°C</option>
+          <option value="imperial">°F</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="flex justify-center mb-8 search-area">
+      <div class="relative w-full max-w-3xl search-container">
+        <div class="flex items-center gap-4">
+
+          <div class="relative flex-1">
+            <input id="search-input" type="text" placeholder="Search for a place..." 
+                   class="w-full bg-gray-800 text-white rounded-2xl px-6 py-4 pl-14 text-lg" 
+                   style="border: none !important; outline: none !important; box-shadow: none !important; appearance: none !important; -webkit-appearance: none !important; -moz-appearance: none !important;" 
+                   autocomplete="off" />
+            <div class="absolute left-5 top-1/2 transform -translate-y-1/2 text-gray-400">
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <div id="suggestions-container" class="suggestions-container">
+            </div>
+          </div>
+          <button id="search-btn" class="search-button bg-blue-600 hover:bg-blue-700 text-white rounded-2xl px-8 py-4 font-semibold text-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 flex items-center gap-3 min-w-fit whitespace-nowrap">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            Search
+          </button>
+        </div>
+        <div class="hidden">
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center">
+      <div class="flex flex-col lg:flex-row gap-6 w-full max-w-7xl px-4">
+        <div class="flex-1 max-w-4xl">
+          <div class="bg-gradient-weather rounded-3xl p-8 mb-6 relative overflow-hidden">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+            <div class="mb-4 md:mb-0">
+              <div class="text-2xl font-bold mb-2" id="location">Berlin, Germany</div>
+              <div class="text-lg opacity-80 mb-6" id="date">Tuesday, Aug 5, 2025</div>
+              <div class="flex items-center gap-6">
+                <img id="main-icon" src="https://openweathermap.org/img/wn/01d@2x.png" alt="Weather" class="w-20 h-20" />
+                <span class="text-7xl font-light" id="temperature">20°</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+          <div class="bg-gray-800 rounded-2xl p-4">
+            <div class="text-sm text-gray-400 mb-1">Feels Like</div>
+            <div class="text-2xl font-semibold" id="feels-like">18°</div>
+          </div>
+          <div class="bg-gray-800 rounded-2xl p-4">
+            <div class="text-sm text-gray-400 mb-1">Humidity</div>
+            <div class="text-2xl font-semibold" id="humidity">46%</div>
+          </div>
+          <div class="bg-gray-800 rounded-2xl p-4">
+            <div class="text-sm text-gray-400 mb-1">Wind</div>
+            <div class="text-2xl font-semibold" id="wind">14 km/h</div>
+          </div>
+          <div class="bg-gray-800 rounded-2xl p-4">
+            <div class="text-sm text-gray-400 mb-1">Precipitation</div>
+            <div class="text-2xl font-semibold" id="precipitation">0 mm</div>
+          </div>
+        </div>
+        
+        <div>
+          <div class="text-xl font-semibold mb-4">Daily forecast</div>
+          <div class="grid grid-cols-2 sm:grid-cols-7 gap-3" id="daily-forecast">
+          </div>
+        </div>
+      </div>
+      
+      <div class="lg:w-80">
+        <div class="bg-gray-800 rounded-3xl p-6">
+          <div class="flex justify-between items-center mb-6">
+            <div class="text-xl font-semibold">Hourly forecast</div>
+            <select id="hourly-day" class="bg-gray-700 text-white rounded-lg px-3 py-2 text-sm" style="border: none !important; outline: none !important; box-shadow: none !important; appearance: none !important; -webkit-appearance: none !important; -moz-appearance: none !important;">
+            </select>
+          </div>
+          <div id="hourly-forecast" class="space-y-3">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="error-message" class="mt-6 text-center text-red-400 font-semibold hidden"></div>
+  </div>
+  <script src="weather.js"></script>
+</body>
+</html>
