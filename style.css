@@ -1,15 +1,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+
 :root {
   --bg-primary: #0B0F1F;        
-  --bg-secondary: #1F2937;      
-  --bg-card: #374151;           
-  --text-primary: #FFFFFF;      
-  --text-secondary: #9CA3AF;    
-  --accent: #3B82F6;            
-  --gradient-start: #4F46E5;    
-  --gradient-end: #7C3AED;      
+  --bg-secondary: #1F2937;     
+  --bg-card: #374151;          
+  --text-primary: #FFFFFF;     
+  --text-secondary: #9CA3AF;   
+  --accent: #3B82F6;           
+  --gradient-start: #4F46E5;   
+  --gradient-end: #7C3AED;     
 }
 
 * {
@@ -45,7 +46,7 @@ body {
 }
 
 select {
-  background-color: var(--bg-card);
+  background: linear-gradient(135deg, #4338CA, #7C3AED);
   color: var(--text-primary);
   border: none;
   border-radius: 12px;
@@ -61,12 +62,12 @@ select {
 }
 
 select:hover {
-  background-color: #4B5563;
+  background: linear-gradient(135deg, #5B21B6, #8B5CF6);
 }
 
 
 .search-button {
-  background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+  background: linear-gradient(135deg, #F59E0B, #D97706);
   border: none !important;
   transition: all 0.3s ease;
   position: relative;
@@ -75,7 +76,7 @@ select:hover {
 }
 
 .search-button:hover {
-  background: linear-gradient(135deg, #2563EB, #1E40AF);
+  background: linear-gradient(135deg, #FBBF24, #F59E0B);
   transform: translateY(-1px);
 }
 
@@ -369,6 +370,10 @@ h1::after, h1::before {
 
 .hidden {
   display: none;
+}
+
+#temperature {
+  color: #FFFFFF !important;
 }
 
 .max-w-2xl {
