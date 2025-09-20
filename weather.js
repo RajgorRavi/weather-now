@@ -787,7 +787,6 @@ function setupUnitsToggle() {
     console.error('❌ Units element not found!');
   }
 }
-
 function initWeatherApp() {
   console.log('🚀 Initializing Weather App...');
   setupSearch();
