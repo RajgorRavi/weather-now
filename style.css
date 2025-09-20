@@ -27,6 +27,7 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
   line-height: 1.6;
+  padding-bottom: 80px;
 }
 
 .bg-gradient-weather {
@@ -67,7 +68,7 @@ select:hover {
 
 
 .search-button {
-  background: linear-gradient(135deg, #F59E0B, #D97706);
+  background: linear-gradient(135deg, #4338CA, #7C3AED);
   border: none !important;
   transition: all 0.3s ease;
   position: relative;
@@ -76,7 +77,7 @@ select:hover {
 }
 
 .search-button:hover {
-  background: linear-gradient(135deg, #FBBF24, #F59E0B);
+  background: linear-gradient(135deg, #5B21B6, #8B5CF6);
   transform: translateY(-1px);
 }
 
@@ -113,7 +114,7 @@ select:hover {
 }
 
 #search-btn {
-  background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+  background: linear-gradient(135deg, #4338CA, #7C3AED);
   border: none !important;
   transition: all 0.3s ease;
   position: relative;
@@ -121,7 +122,7 @@ select:hover {
 }
 
 #search-btn:hover {
-  background: linear-gradient(135deg, #2563EB, #1E40AF);
+  background: linear-gradient(135deg, #5B21B6, #8B5CF6);
   transform: translateY(-1px);
 }
 
